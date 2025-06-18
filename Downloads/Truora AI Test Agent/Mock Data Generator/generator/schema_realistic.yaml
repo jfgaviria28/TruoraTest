@@ -1,0 +1,42 @@
+# Schema for REALISTIC mock marketing data
+# Reflects actual column names after entropy transformation
+
+raw_fb_ads:
+  # Has cost_per_click column for some rows (15% use this instead of cost_usd)
+  columns: [date, campaign_id, cost_usd, impressions, clicks, cost_per_click]
+
+raw_google_ads:
+  # MM/DD/YYYY dates, camelCase columns, dashed clicks
+  columns: [date, campaignId, spend, impressions, clicks]
+
+raw_tiktok_ads:
+  # Mixed currencies, European formatting, capitalized/camelCase columns
+  columns: [date, campaign_id, cost_local, currency, impressionsCount, Clicks]
+
+raw_linkedin_ads:
+  # Timezone-aware datetime format (2025-06-15T14:23:15-05:00)
+  columns: [date, campaign_id, cost_usd, impressions, clicks]
+
+raw_ga4_sessions:
+  # Renamed columns, malformed session IDs
+  columns: [event_date, sessionId, user_uid, campaign_id, conv_flag]
+
+raw_mixpanel_events:
+  # 5% null user_uid values
+  columns: [date, user_uid, event_name, campaign_id]
+
+raw_hubspot_leads:
+  # UNKNOWN statuses, N/A deal amounts
+  columns: [lead_id, user_uid, campaign_id, status, deal_amount]
+
+raw_intercom_leads:
+  # Includes duplicates with email typos + email column
+  columns: [lead_id, user_uid, campaign_id, status, deal_amount, email]
+
+raw_stripe_invoices:
+  # NO campaign_id column (removed), Unix timestamps
+  columns: [invoice_id, user_uid, date, amount_usd]
+
+raw_segment_events:
+  # Renamed columns for different terminology
+  columns: [ts, session_id, uid, campaign_id, properties_json] 

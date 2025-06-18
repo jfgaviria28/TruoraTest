@@ -1,0 +1,23 @@
+# Schema for CLEAN mock marketing data (before entropy transformation)
+# For realistic data schema, see schema_realistic.yaml
+
+raw_fb_ads:
+  columns: [date, campaign_id, cost_usd, impressions, clicks]
+raw_google_ads:
+  columns: [date, campaign_id, cost_usd, impressions, clicks]
+raw_tiktok_ads:
+  columns: [date, campaign_id, cost_usd, impressions, clicks]
+raw_linkedin_ads:
+  columns: [date, campaign_id, cost_usd, impressions, clicks]
+raw_ga4_sessions:
+  columns: [date, session_id, user_uid, campaign_id, conv_flag]
+raw_mixpanel_events:
+  columns: [date, user_uid, event_name, campaign_id]
+raw_hubspot_leads:
+  columns: [lead_id, user_uid, campaign_id, status, deal_amount]
+raw_intercom_leads:
+  columns: [lead_id, user_uid, campaign_id, status, deal_amount]
+raw_stripe_invoices:
+  columns: [invoice_id, user_uid, campaign_id, date, amount_usd]
+raw_segment_events:
+  columns: [date, session_id, user_uid, campaign_id, event_json] 
